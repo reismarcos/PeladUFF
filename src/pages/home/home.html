@@ -5,5 +5,18 @@
 </ion-header>
 
 <ion-content padding>
-  
+
+    <ion-card class="bg-transparent" *ngFor="let pelada of peladas | async" (tap)="ItemClick(pelada)" > <!-- ion-item -->
+      <ion-item class="bg-white">
+        <h2>{{ pelada.nome }}</h2>
+ 
+      </ion-item>
+    </ion-card> 
+
+  <ion-fab right bottom>
+    <button ion-fab (tap)="onAddClick()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>  
+
 </ion-content>

@@ -25,5 +25,25 @@
 
 .toolbar-title-md {
     color: #ffffff;
-    text-align: center;
+}
+
+ion-app.md [padding] .scroll-content {
+    background: #222222;
+}
+
+.label-md[stacked]{
+    font-size: 1.4rem !important;
+    color: #fff !important;
+}
+
+.item-wp.item-input.item-input-has-focus .text-input,
+.item-wp.item-input.input-has-focus .text-input {
+  border-color: #62de2f !important;
+}
+
+.item-input-has-focus .label-md[stacked],
+.input-has-focus .label-md[stacked],
+.item-input-has-focus .label-md[floating],
+.input-has-focus .label-md[floating]{
+    border-color: #62de2f !important;
 }
