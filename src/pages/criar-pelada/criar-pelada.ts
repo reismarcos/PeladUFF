@@ -36,7 +36,7 @@ export class CriarPeladaPage {
       local: '',
       hora: '',
       descricao: '',
-      maxJogadreos: '',
+      maxJogadores: '',
       };
       this.newPeladaFlag = true;
       }

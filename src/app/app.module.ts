@@ -13,6 +13,11 @@ import { CriarPeladaPage } from '../pages/criar-pelada/criar-pelada';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { PeladaService } from './pelada.service';
+import { LoginPage } from '../pages/login/login';
+import { IonicStorageModule } from '@ionic/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './auth.service';
+import { PerfilService } from './perfil.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCotTr78ngNf15QqLGgvrh_MBhre5qQGB8",
@@ -31,13 +36,15 @@ export const firebaseConfig = {
     TabsPage,
     HistoricoPage,
     PerfilPage,
-    CriarPeladaPage
+    CriarPeladaPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
 
   ],
   bootstrap: [IonicApp],
@@ -49,11 +56,14 @@ export const firebaseConfig = {
     HistoricoPage,
     PerfilPage,
     CriarPeladaPage,
+    LoginPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     PeladaService,
+    AuthService,
+    PerfilService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
