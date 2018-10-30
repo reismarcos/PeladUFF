@@ -18,30 +18,43 @@ import { PerfilService } from '../../app/perfil.service';
   templateUrl: 'signup.html',
 })
 export class SignupPage {
+  perfil;
   username = '';
   password = '';
-  nome = '';
-  curso = '';
-  perfil;
+  newPerfilFlag = false;
+  deletePerfilFlag = false;
+  
   
 
   constructor(private authService: AuthService, public navParams: NavParams, private PerfilService: PerfilService, public navCtrl: NavController, private loadingCtrl: LoadingController, private alertCtrl: AlertController) {
     this.perfil = this.navParams.get('perfilParam');
 
-    this.perfil = {
-      nome: this.nome,
-      curso: this.curso,
-    };
-    
+    if(!this.perfil){
+      this.perfil = {
+      nome: '',
+      curso: '',
+      cidade: '',
+      modalidadeFav: '',
+      posFav: '',
+      matricula: '',
+      };
+      this.newPerfilFlag = true;
+      }
   }
+    
+
+  
 
   onSignUp(){
+    this.PerfilService.addPerfil(this.perfil);
     const loading = this.loadingCtrl.create({
       content: 'Signing you up...'
     });    
     loading.present();      
 
+    
     this.authService.signup(this.username, this.password)       
+    
       .then(
         data => {
           loading.dismiss()
