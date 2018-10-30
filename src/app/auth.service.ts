@@ -13,7 +13,6 @@ export class AuthService{
 
     signup(username: string, password: string){ // sign up method will receive the email and password entered
         return this.afAuth.auth.createUserWithEmailAndPassword(username,password);
-
     }
 
     getCurrentUser(){       
