@@ -2,8 +2,6 @@
 
   <ion-navbar>
     <ion-title>{{title}} Pelada <button end ion-button icon-only (click)="onTrash()" *ngIf="!newPeladaFlag" ><ion-icon name="trash"></ion-icon></button></ion-title>
-        
-
   </ion-navbar>
 
 </ion-header>
@@ -54,7 +52,7 @@
           <ion-input type="text" [(ngModel)]="pelada.descricao" value="" required></ion-input>
         </ion-item>
 
-        <ion-col><button ion-button class="btn-save" (tap)="savePelada()" >Criar Pelada</button></ion-col>
+        <ion-col><button ion-button class="btn-save" (tap)="savePelada()" >Salvar</button></ion-col>
 
   </ion-list>
 </ion-content>
