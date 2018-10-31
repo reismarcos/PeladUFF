@@ -5,7 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 @Injectable()
 export class PerfilService{    
   Perfis;
-
+  perfil;
   constructor(private db: AngularFireDatabase){      
 }  
 
@@ -35,7 +35,7 @@ addPerfil(perfil, userId){
 } 
 
 editPerfil(perfil,userId){
-  this.db.object('/perfis/'+userId+perfil.$key).update({
+  this.db.object('/perfis/'+userId).update({
     nome: perfil.nome,             
     matricula: perfil.matricula,
     curso: perfil.curso,
@@ -44,4 +44,11 @@ editPerfil(perfil,userId){
     cidade: perfil.cidade,
   });                
 }  
+getPerfil(userId){
+  this.perfil = this.db.object('/perfis/'+userId);
+  this.perfil.subscribe(perfil => {
+    console.log(perfil);
+    return perfil;
+  });
+}
 }

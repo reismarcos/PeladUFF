@@ -18,6 +18,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
 import { PerfilService } from './perfil.service';
+import { InfoPerfilPage } from '../pages/info-perfil/info-perfil';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCotTr78ngNf15QqLGgvrh_MBhre5qQGB8",
@@ -37,7 +38,8 @@ export const firebaseConfig = {
     HistoricoPage,
     PerfilPage,
     CriarPeladaPage,
-    LoginPage
+    LoginPage,
+    InfoPerfilPage,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ export const firebaseConfig = {
     PerfilPage,
     CriarPeladaPage,
     LoginPage,
+    InfoPerfilPage,
   ],
   providers: [
     StatusBar,
