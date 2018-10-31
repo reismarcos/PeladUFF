@@ -37,12 +37,7 @@ export class PerfilPage {
 
   }
 
-  ngOnInit(){
-    this.authService.getCurrentUser().subscribe(authState => {
-      this.userId = authState.uid;
-      this.perfil = this.perfilService.fetchPerfil(this.userId);
-    });
-  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilPage');

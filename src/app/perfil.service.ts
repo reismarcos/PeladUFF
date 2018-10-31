@@ -4,13 +4,13 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()
 export class PerfilService{    
-  Perfis;
-  perfil;
+  perfis;
+  
   constructor(private db: AngularFireDatabase){      
 }  
 
-fetchPerfil(userId){   
-  return this.db.list('/perfis/' + userId);     
+fetchPerfis(userId){   
+  return this.db.list('/perfis/'+userId);     
 }   
 
 removePerfil(perfil){
@@ -23,7 +23,7 @@ removePerfil(perfil){
 }
 
 addPerfil(perfil, userId){    
-  this.db.object('/perfis/'+userId).set({   
+  this.db.list('/perfis/'+userId).push({   
       nome: perfil.nome,             
       matricula: perfil.matricula,
       curso: perfil.curso,
@@ -44,11 +44,8 @@ editPerfil(perfil,userId){
     cidade: perfil.cidade,
   });                
 }  
-getPerfil(userId){
-  this.perfil = this.db.object('/perfis/'+userId);
-  this.perfil.subscribe(perfil => {
-    console.log(perfil);
-    return perfil;
-  });
-}
+
+
+
+
 }

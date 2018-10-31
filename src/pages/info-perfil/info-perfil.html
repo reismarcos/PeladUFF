@@ -8,11 +8,21 @@
 
   <ion-navbar>
     <ion-title>infoPerfil</ion-title>
+    <ion-buttons end>
+        <button ion-button (tap)="logout()">Logout</button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
-
-<ion-content padding>
-  <p></p>  
+<ion-content padding> 
+  <ion-card *ngFor = "let perfil of perfis | async" >
+    <ion-item>
+      <p>Nome: {{ perfil.nome }}</p>
+      <p>Curso: {{ perfil.curso }}</p>
+      <p>Modalidade Favorita: {{ perfil.modalidadeFav }}</p>
+      <p>Posição Favorita: {{ perfil.posFav }}</p>
+      <p>Cidade: {{ perfil.cidade }}</p>
+    </ion-item>
+  </ion-card>
 </ion-content>

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../app/auth.service';
 import { AngularFireDatabase } from 'angularfire2/database'
 import { PerfilService } from '../../app/perfil.service';
+import { LoginPage } from '../login/login';
 /**
  * Generated class for the InfoPerfilPage page.
  *
@@ -17,25 +18,29 @@ import { PerfilService } from '../../app/perfil.service';
 })
 export class InfoPerfilPage {
   userId;
-  perfil;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthService, private perfilService: PerfilService,private db: AngularFireDatabase) {
-    this.authService.getCurrentUser().subscribe(authState => {
-      this.userId = authState.uid;
-    });
-    
+  perfis;
+  constructor(public navCtrl: NavController, private perfilService: PerfilService, db:AngularFireDatabase, private authService: AuthService) {
+    console.log(db);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InfoPerfilPage');
-    this.perfil = this.perfilService.getPerfil(this.userId);
-    console.log(this.perfil);
+    
   }
 
   ionViewWillLoad() {
-    this.perfil = this.perfilService.getPerfil(this.userId);
-    console.log(this.perfil);
+    
+  }
+  
+  ngOnInit(){
+    this.authService.getCurrentUser().subscribe(authState => {
+      this.userId = authState.uid;
+      this.perfis = this.perfilService.fetchPerfis(this.userId);
+    });
   }
 
-  
-
+  logout(){
+    this.authService.logout();
+    this.navCtrl.setRoot(LoginPage);
+  }
 }
