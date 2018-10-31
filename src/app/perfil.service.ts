@@ -23,7 +23,7 @@ removePerfil(perfil){
 }
 
 addPerfil(perfil, userId){    
-  this.db.list('/perfis/'+userId).push({   
+  this.db.object('/perfis/'+userId).set({   
       nome: perfil.nome,             
       matricula: perfil.matricula,
       curso: perfil.curso,
