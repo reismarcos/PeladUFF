@@ -36,9 +36,7 @@ export class InfoPerfilPage {
     });
   }
 
-  logout(){
-    this.navCtrl.setRoot(LoginPage);
-  }
+
 
   editarPerfil(perfil){
     this.navCtrl.push(PerfilPage,{

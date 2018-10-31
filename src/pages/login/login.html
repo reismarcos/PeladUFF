@@ -10,17 +10,17 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item>
-      <ion-label floating>Username</ion-label>
+    <ion-item class="my-padding">
+      <ion-label stacked>Email</ion-label>
       <ion-input type="text" [(ngModel)]="username"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Password</ion-label>
+      <ion-label stacked>Senha</ion-label>
       <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
   </ion-list>  
-  <button ion-button (click)="signIn()">Login</button> 
-  <button ion-button (click)="signUp()">Sign Up</button>
+  <button class="btn-save" ion-button (click)="signIn()">Login</button> 
+  <button class="btn-save" ion-button (click)="signUp()">Cadastro</button>
     
 </ion-content>  
