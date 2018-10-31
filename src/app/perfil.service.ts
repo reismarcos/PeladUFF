@@ -13,8 +13,8 @@ fetchPerfis(userId){
   return this.db.list('/perfis/'+userId);     
 }   
 
-removePerfil(perfil){
-  this.db.object('/perfis/'+ perfil.$key).remove()
+removePerfil(perfil,userId){
+  this.db.object('/perfis/'+userId+'/'+ perfil.$key).remove()
     .then( x=> console.log("SUCCESS"))
     .catch( error => {
       alert("Could not delete note.");
@@ -34,8 +34,8 @@ addPerfil(perfil, userId){
  
 } 
 
-editPerfil(perfil,userId){
-  this.db.object('/perfis/'+userId).update({
+editarPerfil(perfil,userId){
+  this.db.object('/perfis/'+userId+'/'+perfil.$key).update({
     nome: perfil.nome,             
     matricula: perfil.matricula,
     curso: perfil.curso,

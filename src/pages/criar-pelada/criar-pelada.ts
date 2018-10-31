@@ -62,7 +62,6 @@ export class CriarPeladaPage {
         });
         confirm.present();
 
-        
   }
   ionViewWillLeave() {
     

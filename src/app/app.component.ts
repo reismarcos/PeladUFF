@@ -12,10 +12,11 @@ import { AuthService } from './auth.service';
   templateUrl: 'app.html'
 })
 export class MyApp {
+
   rootPage:any = LoginPage;
 
   constructor (platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private authService: AuthService) {
-    
+   
     
 
     platform.ready().then(() => {

@@ -9,7 +9,6 @@
   <ion-navbar>
     <ion-title>infoPerfil</ion-title>
     <ion-buttons end>
-        <button ion-button (tap)="logout()">Logout</button>
       </ion-buttons>
   </ion-navbar>
 
@@ -23,6 +22,9 @@
       <p>Modalidade Favorita: {{ perfil.modalidadeFav }}</p>
       <p>Posição Favorita: {{ perfil.posFav }}</p>
       <p>Cidade: {{ perfil.cidade }}</p>
+      <button (tap)="editarPerfil(perfil)">Editar</button>
+
     </ion-item>
+
   </ion-card>
 </ion-content>

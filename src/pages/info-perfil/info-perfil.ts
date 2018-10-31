@@ -4,6 +4,7 @@ import { AuthService } from '../../app/auth.service';
 import { AngularFireDatabase } from 'angularfire2/database'
 import { PerfilService } from '../../app/perfil.service';
 import { LoginPage } from '../login/login';
+import { PerfilPage } from '../perfil/perfil';
 /**
  * Generated class for the InfoPerfilPage page.
  *
@@ -27,10 +28,6 @@ export class InfoPerfilPage {
     console.log('ionViewDidLoad InfoPerfilPage');
     
   }
-
-  ionViewWillLoad() {
-    
-  }
   
   ngOnInit(){
     this.authService.getCurrentUser().subscribe(authState => {
@@ -40,7 +37,12 @@ export class InfoPerfilPage {
   }
 
   logout(){
-    this.authService.logout();
     this.navCtrl.setRoot(LoginPage);
+  }
+
+  editarPerfil(perfil){
+    this.navCtrl.push(PerfilPage,{
+      perfilParam : perfil,
+    });
   }
 }
