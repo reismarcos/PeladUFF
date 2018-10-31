@@ -4,6 +4,7 @@ import { AuthService } from '../../app/auth.service';
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
 import { PerfilService } from '../../app/perfil.service';
+import { PerfilPage } from '../perfil/perfil';
 
 /**
  * Generated class for the SignupPage page.
@@ -23,6 +24,7 @@ export class SignupPage {
   password = '';
   newPerfilFlag = false;
   deletePerfilFlag = false;
+  userId;
   
 
   constructor(private authService: AuthService, public navParams: NavParams, private PerfilService: PerfilService, public navCtrl: NavController, private loadingCtrl: LoadingController, private alertCtrl: AlertController) {
@@ -46,20 +48,17 @@ export class SignupPage {
   
 
   onSignUp(){
-    this.PerfilService.addPerfil(this.perfil);
 
     const loading = this.loadingCtrl.create({
       content: 'Signing you up...'
     });    
     loading.present();      
-    
+
     this.authService.signup(this.username, this.password)       
       .then(
         data => {
           loading.dismiss()
-          this.navCtrl.setRoot(TabsPage);
-          
-
+          this.navCtrl.push(PerfilPage)
         }
       ) // successfully create new user
       .catch(
@@ -78,6 +77,10 @@ export class SignupPage {
        
       
   }   
+
+  onPerfil(){
+    
+  }
 
 
 }

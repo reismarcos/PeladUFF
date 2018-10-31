@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { firebaseConfig } from './app.module';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable()
-export class AuthService{    
+export class AuthService{
 
-  constructor(private afAuth: AngularFireAuth){      
+  constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase){ 
   }    
 
     signIn(username: string, password: string){ 

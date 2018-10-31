@@ -9,8 +9,8 @@ export class PerfilService{
   constructor(private db: AngularFireDatabase){      
 }  
 
-fetchPerfil(){   
-  return this.db.list('/perfis');     
+fetchPerfil(userId){   
+  return this.db.list('/perfis/' + userId);     
 }   
 
 removePerfil(perfil){
@@ -22,8 +22,8 @@ removePerfil(perfil){
     });
 }
 
-addPerfil(perfil){    
-  this.db.list('/perfis/').push({   
+addPerfil(perfil, userId){    
+  this.db.list('/perfis/'+userId).push({   
       nome: perfil.nome,             
       matricula: perfil.matricula,
       curso: perfil.curso,
@@ -34,8 +34,8 @@ addPerfil(perfil){
  
 } 
 
-editPerfil(perfil){
-  this.db.object('/perfis/'+perfil.$key).update({
+editPerfil(perfil,userId){
+  this.db.object('/perfis/'+userId+perfil.$key).update({
     nome: perfil.nome,             
     matricula: perfil.matricula,
     curso: perfil.curso,
